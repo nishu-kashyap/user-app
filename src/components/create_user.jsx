@@ -1,7 +1,54 @@
+import { useState } from "react";
+
 function CreateUser() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [age, setAge] = useState("");
+
     return (
-        <div>
-            <h1>Create User Page</h1>
+        <div style={{ padding: "20px" }}>
+            <h2>Create User</h2>
+
+            <div>
+                <label>Email</label>
+                <br />
+                <input
+                    type="email"
+                    placeholder="Enter Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
+
+            <br />
+
+            <div>
+                <label>Password</label>
+                <br />
+                <input
+                    type="password"
+                    placeholder="Enter Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </div>
+
+            <br />
+
+            <div>
+                <label>Age</label>
+                <br />
+                <input
+                    type="number"
+                    placeholder="Enter Age"
+                    value={age}
+                    onChange={(e) => setAge(e.target.value)}
+                />
+            </div>
+
+            <br />
+
+            <button>Submit</button>
         </div>
     );
 }
