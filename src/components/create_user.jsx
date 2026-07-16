@@ -1,4 +1,5 @@
 import { useState } from "react";
+import EmailInput from "./email.input";
 
 function CreateUser() {
     const [email, setEmail] = useState("");
@@ -9,17 +10,10 @@ function CreateUser() {
         <div style={{ padding: "20px" }}>
             <h2>Create User</h2>
 
-            <div>
-                <label>Email</label>
-                <br />
-                <input
-                    type="email"
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </div>
 
+            <EmailInput
+                successEvent={(value) => console.log("Valid Email:", value)}
+            />
             <br />
 
             <div>
