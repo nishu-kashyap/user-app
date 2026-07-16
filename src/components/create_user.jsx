@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EmailInput from "./email.input";
+import PasswordInput from "./pwd.input";
 
 function CreateUser() {
     const [email, setEmail] = useState("");
@@ -16,16 +17,11 @@ function CreateUser() {
             />
             <br />
 
-            <div>
-                <label>Password</label>
-                <br />
-                <input
-                    type="password"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
+            <PasswordInput
+                successEvent={(password) => {
+                    console.log("Password valid:", password)
+                }}
+            />
 
             <br />
 
