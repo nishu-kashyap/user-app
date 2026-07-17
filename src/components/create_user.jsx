@@ -1,14 +1,10 @@
+import EmailInput from "./email.input";
 function CreateUser() {
     return (
         <div>
             <h2>Create User</h2>
 
-            <div>
-                <label>Email</label>
-                <br />
-                <input type="email" placeholder="Enter Email" />
-            </div>
-
+            <EmailInput />
             <br />
 
             <div>
