@@ -10,20 +10,14 @@ function EmailInput({ successEvent }) {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        if (value === "") {
-            setError("Email is required");
-            return;
-        }
+        if (emailRegex.test(value)) {
+            setError("");
 
-        if (!emailRegex.test(value)) {
-            setError("Invalid Email");
-            return;
-        }
-
-        setError("");
-
-        if (successEvent) {
-            successEvent(value);
+            if (successEvent) {
+                successEvent(value);
+            }
+        } else {
+            setError("Invalid email format");
         }
     };
 
@@ -34,16 +28,12 @@ function EmailInput({ successEvent }) {
 
             <input
                 type="email"
+                placeholder="Enter Email"
                 value={email}
                 onChange={handleChange}
-                placeholder="Enter Email"
             />
 
-            {error && (
-                <p style={{ color: "red" }}>
-                    {error}
-                </p>
-            )}
+            {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
     );
 }
