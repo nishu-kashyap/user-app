@@ -1,30 +1,20 @@
-import { useState } from "react";
-import EmailInput from "./email.input";
-
 function CreateUser() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [age, setAge] = useState("");
-
     return (
-        <div style={{ padding: "20px" }}>
+        <div>
             <h2>Create User</h2>
 
+            <div>
+                <label>Email</label>
+                <br />
+                <input type="email" placeholder="Enter Email" />
+            </div>
 
-            <EmailInput
-                successEvent={(value) => console.log("Valid Email:", value)}
-            />
             <br />
 
             <div>
                 <label>Password</label>
                 <br />
-                <input
-                    type="password"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                <input type="password" placeholder="Enter Password" />
             </div>
 
             <br />
@@ -32,17 +22,8 @@ function CreateUser() {
             <div>
                 <label>Age</label>
                 <br />
-                <input
-                    type="number"
-                    placeholder="Enter Age"
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                />
+                <input type="number" placeholder="Enter Age" />
             </div>
-
-            <br />
-
-            <button>Submit</button>
         </div>
     );
 }
