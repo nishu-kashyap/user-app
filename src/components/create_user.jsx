@@ -6,13 +6,17 @@ function CreateUser() {
     const [user, setUser] = useState({
         email: "",
         password: "",
-        age: ""
+        age: "",
+        isEmailValid: false,
+        isPasswordValid: false,
+        isAgeValid: false
     });
     function handleEmailCaptured(data) {
 
         setUser((prev) => ({
             ...prev,
-            email: data.email
+            email: data.email,
+            isEmailValid: data.isValid
         }));
 
     }
@@ -20,7 +24,8 @@ function CreateUser() {
 
         setUser((prev) => ({
             ...prev,
-            age: data.number
+            age: data.number,
+            isAgeValid: data.isValid
         }));
 
     }
@@ -28,8 +33,23 @@ function CreateUser() {
 
         setUser((prev) => ({
             ...prev,
-            password: data.password
+            password: data.password,
+            isPasswordValid: data.isValid
         }));
+
+
+    }
+    function handleSubmit() {
+
+        if (
+            user.isEmailValid &&
+            user.isPasswordValid &&
+            user.isAgeValid
+        ) {
+            console.log("Success");
+        } else {
+            console.log("Please fix the validation errors.");
+        }
 
     }
     console.log(user);
@@ -46,6 +66,11 @@ function CreateUser() {
 
             <NumberInput label="Age"
                 onNumberCaptured={handleNumberCaptured} />
+            <br />
+
+            <button onClick={handleSubmit}>
+                Submit
+            </button>
         </div>
     );
 }
