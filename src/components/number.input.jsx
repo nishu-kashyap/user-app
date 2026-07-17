@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function NumberInput({ label, successEvent }) {
+function NumberInput({ label, onNumberCaptured }) {
 
     const [value, setValue] = useState("");
     const [error, setError] = useState("");
@@ -54,15 +54,26 @@ function NumberInput({ label, successEvent }) {
 
             setError(validationError);
 
+            if (onNumberCaptured) {
+                onNumberCaptured({
+                    number: input,
+                    isValid: false
+                });
+            }
+
         }
         else {
 
             setError("");
 
-            successEvent(input);
+            if (onNumberCaptured) {
+                onNumberCaptured({
+                    number: input,
+                    isValid: true
+                });
+            }
 
         }
-
     };
 
 

@@ -5,6 +5,9 @@ function CreateUser() {
     function handleEmailCaptured(data) {
         console.log(data);
     }
+    function handleNumberCaptured(data) {
+        console.log(data);
+    }
     return (
         <div>
             <h2>Create User</h2>
@@ -16,7 +19,8 @@ function CreateUser() {
 
             <br />
 
-            <NumberInput />
+            <NumberInput label="Age"
+                onNumberCaptured={handleNumberCaptured} />
         </div>
     );
 }
