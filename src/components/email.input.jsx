@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 function EmailInput({ onEmailCaptured }) {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
@@ -36,6 +35,7 @@ function EmailInput({ onEmailCaptured }) {
 
             return;
         }
+
         setError("");
 
         if (onEmailCaptured) {
@@ -47,19 +47,44 @@ function EmailInput({ onEmailCaptured }) {
     };
 
     return (
-        <div>
-            <label>Email</label>
-            <br />
+        <div
+            style={{
+                marginBottom: "15px",
+                display: "flex",
+                flexDirection: "column"
+            }}
+        >
+            <label
+                style={{
+                    marginBottom: "6px",
+                    fontWeight: "bold"
+                }}
+            >
+                Email
+            </label>
 
             <input
                 type="email"
                 value={email}
                 onChange={handleChange}
                 placeholder="Enter Email"
+                style={{
+                    padding: "8px",
+                    fontSize: "14px",
+                    border: "1px solid #ccc",
+                    borderRadius: "4px"
+                }}
             />
 
             {error && (
-                <p style={{ color: "red" }}>
+                <p
+                    style={{
+                        color: "red",
+                        marginTop: "5px",
+                        marginBottom: "0",
+                        fontSize: "14px"
+                    }}
+                >
                     {error}
                 </p>
             )}
