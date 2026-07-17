@@ -8,6 +8,9 @@ function CreateUser() {
     function handleNumberCaptured(data) {
         console.log(data);
     }
+    function handlePasswordCaptured(data) {
+        console.log(data);
+    }
     return (
         <div>
             <h2>Create User</h2>
@@ -15,7 +18,7 @@ function CreateUser() {
             <EmailInput onEmailCaptured={handleEmailCaptured} />
             <br />
 
-            <PasswordInput />
+            <PasswordInput onPasswordCaptured={handlePasswordCaptured} />
 
             <br />
 

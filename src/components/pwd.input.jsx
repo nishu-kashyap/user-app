@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-function PasswordInput({ successEvent }) {
+function PasswordInput({ onPasswordCaptured }) {
 
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -49,12 +49,24 @@ function PasswordInput({ successEvent }) {
 
             setError(validationError);
 
+            if (onPasswordCaptured) {
+                onPasswordCaptured({
+                    password: value,
+                    isValid: false
+                });
+            }
+
         }
         else {
 
             setError("");
 
-            successEvent(value);
+            if (onPasswordCaptured) {
+                onPasswordCaptured({
+                    password: value,
+                    isValid: true
+                });
+            }
 
         }
 
