@@ -1,4 +1,6 @@
 import EmailInput from "./email.input";
+import PasswordInput from "./pwd.input";
+import NumberInput from "./number.input";
 function CreateUser() {
     return (
         <div>
@@ -7,19 +9,11 @@ function CreateUser() {
             <EmailInput />
             <br />
 
-            <div>
-                <label>Password</label>
-                <br />
-                <input type="password" placeholder="Enter Password" />
-            </div>
+            <PasswordInput />
 
             <br />
 
-            <div>
-                <label>Age</label>
-                <br />
-                <input type="number" placeholder="Enter Age" />
-            </div>
+            <NumberInput />
         </div>
     );
 }
