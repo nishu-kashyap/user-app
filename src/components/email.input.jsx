@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-function EmailInput({ successEvent }) {
+
+function EmailInput({ onEmailCaptured }) {
     const [email, setEmail] = useState("");
     const [error, setError] = useState("");
 
@@ -12,18 +13,36 @@ function EmailInput({ successEvent }) {
 
         if (value === "") {
             setError("Email is required");
+
+            if (onEmailCaptured) {
+                onEmailCaptured({
+                    email: value,
+                    isValid: false
+                });
+            }
+
             return;
         }
 
         if (!emailRegex.test(value)) {
             setError("Invalid Email");
+
+            if (onEmailCaptured) {
+                onEmailCaptured({
+                    email: value,
+                    isValid: false
+                });
+            }
+
             return;
         }
-
         setError("");
 
-        if (successEvent) {
-            successEvent(value);
+        if (onEmailCaptured) {
+            onEmailCaptured({
+                email: value,
+                isValid: true
+            });
         }
     };
 
