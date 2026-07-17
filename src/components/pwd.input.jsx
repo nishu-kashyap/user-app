@@ -1,92 +1,44 @@
 import { useState } from "react";
 
-
 function PasswordInput({ successEvent }) {
-
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-
-    const validatePassword = (value) => {
-
-        if (value.length < 10) {
-            return "Password must contain minimum 10 characters";
-        }
-
-        if (!/[A-Z]/.test(value)) {
-            return "Password must contain one uppercase letter";
-        }
-
-        if (!/[a-z]/.test(value)) {
-            return "Password must contain one lowercase letter";
-        }
-
-        if (!/[0-9]/.test(value)) {
-            return "Password must contain one number";
-        }
-
-        if (!/[!@#$%^&*]/.test(value)) {
-            return "Password must contain one special character";
-        }
-
-
-        return "";
-    }
-
-
-
     const handleChange = (e) => {
-
         const value = e.target.value;
-
         setPassword(value);
 
+        const passwordRegex =
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{10,}$/;
 
-        const validationError = validatePassword(value);
-
-
-        if (validationError) {
-
-            setError(validationError);
-
-        }
-        else {
-
+        if (passwordRegex.test(value)) {
             setError("");
 
-            successEvent(value);
-
+            if (successEvent) {
+                successEvent(value);
+            }
+        } else {
+            setError(
+                "Password must be at least 10 characters with uppercase, lowercase, number and special character."
+            );
         }
-
-    }
-
-
+    };
 
     return (
-
         <div>
-
             <label>Password</label>
+            <br />
 
             <input
                 type="password"
+                placeholder="Enter Password"
                 value={password}
                 onChange={handleChange}
             />
 
-
-            {
-                error &&
-                <p style={{ color: "red" }}>
-                    {error}
-                </p>
-            }
-
+            {error && <p style={{ color: "red" }}>{error}</p>}
         </div>
-
-    )
-
+    );
 }
-
 
 export default PasswordInput;
