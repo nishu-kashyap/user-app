@@ -1,0 +1,16 @@
+* [33m3de6207[m[33m ([m[1;31morigin/email-input[m[33m, [m[1;32memail-input[m[33m)[m Added email, password and age fields
+* [33m1b3c326[m Created email input component with validation
+[31m|[m * [33mee15a1f[m[33m ([m[1;31morigin/pwd-input[m[33m, [m[1;32mpwd-input[m[33m)[m Added email, password and age fields
+[31m|[m * [33mc91d7f5[m Created password input component with validation
+[31m|[m * [33m7040c40[m added password input validation
+[31m|[m[31m/[m  
+* [33mf49aeed[m Create reusable email input component
+[32m|[m * [33mf309ebe[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnumber-input[m[33m, [m[1;31morigin/user-create-main[m[33m, [m[1;31morigin/number-input[m[33m, [m[1;32muser-create-main[m[33m)[m Added email, password and age fields
+[32m|[m[32m/[m  
+* [33mb2576fd[m Add create user form
+* [33mec72518[m[33m ([m[1;31morigin/routes[m[33m, [m[1;32mroutes[m[33m)[m Rename components back to jsx
+[33m|[m * [33macdb4b1[m[33m ([m[1;31morigin/blank_components[m[33m, [m[1;32mblank_components[m[33m)[m Keep blank_components task clean
+[33m|[m * [33m0157055[m Rename components to jsx
+[33m|[m[33m/[m  
+* [33mb129960[m Rename components to js
+* [33m906f644[m Created blank user components
