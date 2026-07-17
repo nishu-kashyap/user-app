@@ -1,6 +1,4 @@
 import EmailInput from "./email.input";
-import PasswordInput from "./pwd.input";
-import NumberInput from "./number.input";
 function CreateUser() {
     return (
         <div>
